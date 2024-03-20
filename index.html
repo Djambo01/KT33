@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul class="menu">
+        <li class="has-submenu">Книги
+            <ul class="submenu">
+                <li>Отечественные</li>
+                <li class="has-submenu">Зарубежные
+                    <ul class="submenu">
+                        <li>Детективы</li>
+                        <li>Научная фантастика</li>
+                        <li>Исторические</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li class="has-submenu">DVD
+            <ul class="submenu">
+                <li class="has-submenu">Отечественные
+                    <ul class="submenu">
+                        <li>Детективы</li>
+                        <li>Научная фантастика</li>
+                        <li>Исторические</li>
+                    </ul>
+                </li>
+                <li>Зарубежные</li>
+            </ul>
+        </li>
+    </ul>
+
+    <style>
+        .submenu {
+            display: none;
+        }
+
+        .show {
+            display: block;
+        }
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuItems = document.querySelectorAll('.has-submenu');
+
+            menuItems.forEach(item => {
+                item.addEventListener('click', function(event) {
+                    event.stopPropagation();
+                    const submenu = this.querySelector('.submenu');
+                    if (submenu) {
+                        submenu.classList.toggle('show');
+                    } else {
+                        alert('Переход по ссылке');
+                    }
+                });
+            });
+        });
+
+    </script>
+</body>
+</html>
+
+
+
